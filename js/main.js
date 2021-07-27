@@ -1,25 +1,59 @@
-// #$emitを使って子から親へ
+// #子から親へdataを送る
 (function(){
   'use stirct';
 
   Vue.component('emit-event',{
-    template: '<button @click="clickEvent">ボタン</button>',
+    template: `<div>
+    <input type="text" v-model="inputText">
+    <button @click="clickEvent">送信ボタン</button>
+    </div>`,
+    data: function(){
+      return {
+        inputText : ''
+      }
+    },
     methods: {
       clickEvent: function(){
-        this.$emit('from-child');
+        this.$emit('from-child',this.inputText)
       }
-    }
-  });
+    },
+  })	
   
   var app = new Vue({
     el: '#app',
+    data: {
+      message: ''
+    },
     methods:{
-      alertMessage: function(){
-        alert('子からイベント受け取ったよ');
+      receiveMessage: function(message){
+        this.message = message;
       }
     }
   });
 })();
+
+// #$emitを使って子から親へ
+// (function(){
+//   'use stirct';
+
+//   Vue.component('emit-event',{
+//     template: '<button @click="clickEvent">ボタン</button>',
+//     methods: {
+//       clickEvent: function(){
+//         this.$emit('from-child');
+//       }
+//     }
+//   });
+  
+//   var app = new Vue({
+//     el: '#app',
+//     methods:{
+//       alertMessage: function(){
+//         alert('子からイベント受け取ったよ');
+//       }
+//     }
+//   });
+// })();
 
 // #リストデータを子に渡す
 // (function(){

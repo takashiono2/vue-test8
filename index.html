@@ -1,6 +1,25 @@
-<!--#$emitを使って子から親へ-->
+<!--#子から親へdataを送る-->
 <!DOCTYPE html>
 <html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <emit-event @from-child="receiveMessage"></emit-event>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+<!--#$emitを使って子から親へ-->
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +33,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="js/main.js"></script>
 </body>
-</html>
+</html> -->
 
 <!-- #リストデータを子に渡す -->
 <!-- <!DOCTYPE html>
