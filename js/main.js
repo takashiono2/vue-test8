@@ -1,36 +1,52 @@
-// #子から親へdataを送る
+// #slotによる挿入
 (function(){
   'use stirct';
 
-  Vue.component('emit-event',{
+  Vue.component('slot-test',{
     template: `<div>
-    <input type="text" v-model="inputText">
-    <button @click="clickEvent">送信ボタン</button>
-    </div>`,
-    data: function(){
-      return {
-        inputText : ''
-      }
-    },
-    methods: {
-      clickEvent: function(){
-        this.$emit('from-child',this.inputText)
-      }
-    },
+    <h1><slot name="title">タイトル</slot></h1>
+    <p><slot name="content">デフォルト</slot></p>
+    </div>`
   })	
   
   var app = new Vue({
-    el: '#app',
-    data: {
-      message: ''
-    },
-    methods:{
-      receiveMessage: function(message){
-        this.message = message;
-      }
-    }
+    el: '#app'
   });
 })();
+
+// #子から親へdataを送る
+// (function(){
+//   'use stirct';
+
+//   Vue.component('emit-event',{
+//     template: `<div>
+//     <input type="text" v-model="inputText">
+//     <button @click="clickEvent">送信ボタン</button>
+//     </div>`,
+//     data: function(){
+//       return {
+//         inputText : ''
+//       }
+//     },
+//     methods: {
+//       clickEvent: function(){
+//         this.$emit('from-child',this.inputText)
+//       }
+//     },
+//   })	
+  
+//   var app = new Vue({
+//     el: '#app',
+//     data: {
+//       message: ''
+//     },
+//     methods:{
+//       receiveMessage: function(message){
+//         this.message = message;
+//       }
+//     }
+//   });
+// })();
 
 // #$emitを使って子から親へ
 // (function(){
