@@ -1,5 +1,41 @@
-<!-- #slotによる挿入 -->
+#todosチェックbox
 <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Component</title>
+</head>
+<body>
+  <div id="app">
+    <h2>Todos:</h2>
+    <ol>
+      <li v-for="todo in todos">
+        <label>
+          <input type="checkbox"
+            v-on:change="toggle(todo)"
+            v-bind:checked="todo.checked" >
+      
+          <del v-if="!todo.checked">
+            {{ todo.text }}
+          </del>
+        
+          <span v-else>
+            {{ todo.text }}
+          </span>
+        </label>
+      </li>
+    </ol>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+<!-- #slotによる挿入 -->
+<!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +53,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="js/main.js"></script>
 </body>
-</html>
+</html> -->
 
 <!--#子から親へdataを送る-->
 <!-- <!DOCTYPE html>

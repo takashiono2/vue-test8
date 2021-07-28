@@ -1,18 +1,39 @@
-// #slotによる挿入
+// #todosチェックbox
 (function(){
-  'use stirct';
-
-  Vue.component('slot-test',{
-    template: `<div>
-    <h1><slot name="title">タイトル</slot></h1>
-    <p><slot name="content">デフォルト</slot></p>
-    </div>`
-  })	
-  
+  'use stirct';  
   var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+      todos: [
+        { text: "Learn JavaScript" ,checked: true},
+        { text: "Learn Vue" ,checked: true},
+        { text: "Play around in JSFiddle" ,checked: true},
+        { text: "Build something awesome" ,checked: true}
+      ]
+    },
+    methods: {
+      toggle: function(todo){
+        todo.checked = !todo.checked; 
+      }
+    }
   });
 })();
+
+// #slotによる挿入
+// (function(){
+//   'use stirct';
+
+//   Vue.component('slot-test',{
+//     template: `<div>
+//     <h1><slot name="title">タイトル</slot></h1>
+//     <p><slot name="content">デフォルト</slot></p>
+//     </div>`
+//   })	
+  
+//   var app = new Vue({
+//     el: '#app'
+//   });
+// })();
 
 // #子から親へdataを送る
 // (function(){
