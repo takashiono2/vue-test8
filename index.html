@@ -16,9 +16,9 @@
         <label>
           <input type="checkbox"
             v-on:change="toggle(todo)"
-            v-bind:checked="todo.checked" >
+            v-bind:checked="todo.done" >
       
-          <del v-if="!todo.checked">
+          <del v-if="todo.done">
             {{ todo.text }}
           </del>
         

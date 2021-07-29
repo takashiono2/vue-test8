@@ -5,15 +5,15 @@
     el: '#app',
     data: {
       todos: [
-        { text: "Learn JavaScript" ,checked: true},
-        { text: "Learn Vue" ,checked: true},
-        { text: "Play around in JSFiddle" ,checked: true},
-        { text: "Build something awesome" ,checked: true}
+        { text: "Learn JavaScript" , done: false},
+        { text: "Learn Vue" ,done: false},
+        { text: "Play around in JSFiddle" ,done: false},
+        { text: "Build something awesome" ,done: false}
       ]
     },
     methods: {
       toggle: function(todo){
-        todo.checked = !todo.checked; 
+         todo.done=!todo.done;
       }
     }
   });
